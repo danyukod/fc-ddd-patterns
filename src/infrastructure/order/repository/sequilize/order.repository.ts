@@ -42,9 +42,7 @@ export default class OrderRepository {
                 })),
             },
             {
-                where: {id: entity.id},
-                include: [{model: OrderItemModel}],
-            }
+                where: {id: entity.id}}
         );
     }
 
