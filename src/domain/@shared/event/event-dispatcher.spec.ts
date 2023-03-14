@@ -8,8 +8,8 @@ import SecondHandlerWhenCustomerIsCreatedHandler
     from "../../customer/event/handler/second-handler-when-customer-is-created.handler";
 import CustomerCreatedEvent from "../../customer/event/customer-created.event";
 import CustomerAddressChangedEvent from "../../customer/event/customer-address-changed.event";
-import HandlerWhenCustomerAddressIsChangedHandler
-    from "../../customer/event/handler/handler-when-customer-address-is-changed.handler";
+import HandlerWhenCustomerAddressIsChanged
+    from "../../customer/event/handler/handler-when-customer-address-is-changed";
 
 describe("Domain events tests", () => {
     it("should register an event handler", () => {
@@ -117,7 +117,7 @@ describe("Domain events tests", () => {
 
 
         //CUSTOMER ADDRESS CHANGED EVENT
-        const handlerWhenCustomerAddressIsChangedHandler = new HandlerWhenCustomerAddressIsChangedHandler();
+        const handlerWhenCustomerAddressIsChangedHandler = new HandlerWhenCustomerAddressIsChanged();
         const spyEventHandlerAddress = jest.spyOn(handlerWhenCustomerAddressIsChangedHandler, "handle");
         eventDispatcher.register("CustomerAddressChangedEvent", handlerWhenCustomerAddressIsChangedHandler);
 
@@ -139,7 +139,7 @@ describe("Domain events tests", () => {
         });
 
 
-        //Quando o notify for executado o HandlerWhenCustomerAddressIsChangedHandler.handle() deve ser chamado
+        //Quando o notify for executado o HandlerWhenCustomerAddressIsChanged.handle() deve ser chamado
         eventDispatcher.notify(customerAddressChangedEvent)
         expect(spyEventHandlerAddress).toHaveBeenCalled();
 
